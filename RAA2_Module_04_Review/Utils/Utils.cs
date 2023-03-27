@@ -22,10 +22,14 @@ namespace RAA2_Module_04_Review
 
         internal static IEnumerable<Element> GetAllColumns(Document doc)
         {
+            List<BuiltInCategory> catList = new List<BuiltInCategory> { 
+                BuiltInCategory.OST_StructuralColumns, BuiltInCategory.OST_Columns };
+
+            ElementMulticategoryFilter catFilter = new ElementMulticategoryFilter(catList);
+
             FilteredElementCollector collector = new FilteredElementCollector(doc);
-            collector.OfCategory(BuiltInCategory.OST_Columns);
-            collector.OfCategory(BuiltInCategory.OST_StructuralColumns);
             collector.WhereElementIsNotElementType();
+            collector.WherePasses(catFilter);
 
             return collector.ToList();
         }
