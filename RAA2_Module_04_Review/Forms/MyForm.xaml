@@ -1,0 +1,62 @@
+﻿<Window x:Class="RAA2_Module_04_Review.MyForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RAA2_Module_04_Review"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="600">
+    <Window.Resources>
+        <Style TargetType="RadioButton">
+            <Setter Property="Margin" Value="5,0,10,0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style TargetType="CheckBox">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="90"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="10,0,10,0"/>
+        </Style>
+        <Style x:Key="Title" TargetType="Label">
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontWeight" Value="ExtraBold"/>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="Level Checker" Style="{StaticResource Title}"/>
+        <Label Grid.Row="1" Content="Select Level to Check:"/>
+        <ComboBox x:Name="cmbLevels" Grid.Row="2"/>
+        <Label Grid.Row="3" Content="Select Color:" VerticalAlignment="Bottom"/>
+        <StackPanel Grid.Row="4" Orientation="Horizontal">
+            <RadioButton x:Name="rbColorRed" Content="Red" GroupName="ColorGroup" IsChecked="True"/>
+            <RadioButton x:Name="rbColorBlue" Content="Blue" GroupName="ColorGroup"/>
+            <RadioButton x:Name="rbColorGreen" Content="Green" GroupName="ColorGroup"/>
+            <RadioButton x:Name="rbColorYellow" Content="Yellow" GroupName="ColorGroup"/>
+        </StackPanel>
+        <Label Grid.Row="5" Content="Select Categories to Check:"/>
+        <StackPanel Grid.Row="6" Orientation="Vertical">
+            <CheckBox x:Name="cbxCatColumns" Content="Columns"/>
+            <CheckBox x:Name="cbxCatFraming" Content="Framing"/>
+            <CheckBox x:Name="cbxCatWalls" Content="Walls"/>
+        </StackPanel>
+        <StackPanel Grid.Row="7" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="btnReset" Content="Reset" Click="btnReset_Click"/>
+            <Button x:Name="btnApply" Content="Apply" Click="btnApply_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
