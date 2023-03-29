@@ -40,7 +40,7 @@
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Content="Level Checker" Style="{StaticResource Title}"/>
         <Label Grid.Row="1" Content="Select Level to Check:"/>
-        <ComboBox x:Name="cmbLevels" Grid.Row="2"/>
+        <ComboBox x:Name="cmbLevels" Grid.Row="2" ItemsSource="{Binding LevelList}" DisplayMemberPath="Name"/>
         <Label Grid.Row="3" Content="Select Color:" VerticalAlignment="Bottom"/>
         <StackPanel Grid.Row="4" Orientation="Horizontal">
             <RadioButton x:Name="rbColorRed" Content="Red" GroupName="ColorGroup" IsChecked="True"/>

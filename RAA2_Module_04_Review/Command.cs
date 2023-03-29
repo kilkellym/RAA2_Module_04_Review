@@ -22,21 +22,9 @@ namespace RAA2_Module_04_Review
           ElementSet elements)
         {
             UIApplication uiapp = commandData.Application;
-            UIDocument uidoc = uiapp.ActiveUIDocument;
-            Application app = uiapp.Application;
-            Document doc = uidoc.Document;
-
-            // put any code needed for the form here
-            List<Level> LevelList = Utils.GetAllLevels(doc);
-
-            SetColor mySetColorAction = new SetColor();
-            ExternalEvent mySetColorEvent = ExternalEvent.Create(mySetColorAction);
-
-            ResetColor myResetColorAction = new ResetColor();
-            ExternalEvent myResetColorEvent = ExternalEvent.Create(myResetColorAction);
-
+            
             // open form
-            MyForm currentForm = new MyForm(LevelList, myResetColorEvent, mySetColorEvent)
+            MyForm currentForm = new MyForm(uiapp)
             {
                 Width = 600,
                 Height = 400,
@@ -47,6 +35,7 @@ namespace RAA2_Module_04_Review
             currentForm.Show();
 
             // get form data and do something
+            Parameter curParam = get_Parameter(BuiltInParameter.)
 
             return Result.Succeeded;
         }

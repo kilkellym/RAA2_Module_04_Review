@@ -72,6 +72,7 @@
     <Compile Include="Forms\MyForm.xaml.cs">
       <DependentUpon>MyForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="RAA2_Module_04_Review.addin" />

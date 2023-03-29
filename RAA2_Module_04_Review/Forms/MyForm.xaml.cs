@@ -24,20 +24,15 @@ namespace RAA2_Module_04_Review
     /// </summary>
     public partial class MyForm : Window
     {
-        ObservableCollection<Level> LevelList { get; set; }
-        ExternalEvent EventSet;
-        ExternalEvent EventReset;
+        ViewModel viewmodel;
 
-        public MyForm(List<Level> _levels, ExternalEvent _eventReset, ExternalEvent _eventSet)
+        public MyForm(UIApplication uiapp)
         {
             InitializeComponent();
 
-            LevelList = new ObservableCollection<Level>(_levels);
+            viewmodel = new ViewModel(uiapp);
 
-            cmbLevels.ItemsSource = LevelList;
-            cmbLevels.DisplayMemberPath = "Name";
-            EventReset = _eventReset;
-            EventSet = _eventSet;
+            this.DataContext = viewmodel;
 
             //cmbLevels.SelectedIndex = 0;
 
@@ -49,14 +44,14 @@ namespace RAA2_Module_04_Review
             SetSelectedColor();
             SetSelectedCategories();
 
-            EventSet.Raise();
+            viewmodel.RunApply();
         }
 
         private void btnReset_Click(object sender, RoutedEventArgs e)
         {
             SetSelectedCategories();
 
-            EventReset.Raise();
+            viewmodel.RunReset();
         }
 
         private void SetSelectedCategories()
